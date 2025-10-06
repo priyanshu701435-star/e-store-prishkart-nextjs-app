@@ -1,0 +1,335 @@
+:root {
+    --primary-color: #007bff; 
+    --secondary-color: #ffc107;
+    --text-color: #161515;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --cta-success: #166021;
+    --shadow-light: 0 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-style: i;
+    margin: 2vh;
+    padding: 2vw
+}
+
+.main-nav a {
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.search-bar-container {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 30px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.cart-icon {
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.user-actions button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    font-weight: 500;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--background-color)0.2s;
+}
+.user-actions button:hover {
+    background-color: #555555;
+}
+
+.hero-banner {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-banner h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.products-section {
+    padding: 0 30px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.filters-sort {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: var(--card-background);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); 
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    min-height: 40px;
+    color: var(--text-color);
+}
+
+.price {
+    font-size: 1.5em;
+    color: #dc3545; 
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.cta-button {
+    background-color: var(--secondary-color); 
+    color: var(--text-color);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+}
+
+.add-to-cart-btn {
+    background-color: var(--cta-success);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #1e7e34;
+}
+
+.close-button {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal-overlay.show {
+    display: block;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#cart-items-list {
+    list-style: none;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+#cart-items-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95em;
+}
+
+.cart-summary-total {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 10px;
+    border-top: 2px solid #333;
+    padding-top: 10px;
+}
+
+.checkout-btn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #343a40;
+    color: white;
+    margin-top: 40px;
+}
+
+.footer-links a {
+    color: #ccc;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.site-footer p {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav {
+        display: none; 
+    }
+    .search-bar-container {
+        order: 3;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .cart-icon {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    .hero-banner {
+        padding: 50px 10px;
+    }
+    .products-section {
+        padding: 0 10px 20px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
